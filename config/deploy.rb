@@ -3,25 +3,25 @@ require 'bundler/capistrano'
 default_run_options[:pty] = false
 ssh_options[:forward_agent] = true
 set :use_sudo, false
-set :user, "dhusername"
+set :user, "webghostingshell"
 
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+role :web, "m.xn--ycee.net"                          # Your HTTP server, Apache/etc
+role :app, "m.xn--ycee.net"                          # This may be the same as your `Web` server
+role :db,  "testapp.m.xn--ycee.net", :primary => true # This is where Rails migrations will run
+
 
 
 
 set :application, "example.com"
-set :repository,  "git@github.com:claco/example.com.git"
+set :repository,  "git@github.com:m4ry/books.git"
 set :scm, :git
 set :branch, 'master'
 set :git_shallow_clone, 1
 set :deploy_via, :remote_cache
 set :copy_compression, :bz2
 set :rails_env, 'production'
-set :deploy_to, "/home/dhusername/#{application}"
+set :deploy_to, "/home/webghostingshell/#{application}"
 
 
 
