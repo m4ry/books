@@ -1,0 +1,10 @@
+ 
+<% for book in @books do %>  
+
+  <h2><%=link_to(h(book.title), book_path(book)) %></h2>  
+  <p><%= book.thoughts %></p>  
+<% end %>  
+
+<p>  
+  Admin actions: <%= link_to 'New Book', new_book_path %>  
+</p> 

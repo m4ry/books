@@ -1,0 +1,29 @@
+
+      
+    <h2><%=link_to(h(@book.title), book_path(@book)) %></h2>  
+    <p><%= @book.thoughts %></p>  
+    
+    <% if @comments %>  
+  	<h3>Comments</h3>  
+  
+  <% for comment in @comments do %>  
+    <p><strong><%=h(comment.author) %></strong>: <%=h comment.text %>  
+  <% end %>  
+<% end %> 
+
+<h3>Post Your Comment</h3>  
+<% form_for([@book, Comment.new]) do |form| %>  
+  <p><%= form.label :author %></p>  
+  <p><%= form.text_field :author %></p>  
+  
+  <p><%= form.label :text, 'Comment' %></p>  
+  <p><%= form.text_area :text %></p>  
+  
+  <%= form.submit 'Save' %>  
+<% end %> 
+
+<p>  
+  Admin Actions:  
+  <%= link_to 'Edit', edit_book_path(@book) %> |  
+  <%= link_to 'Delete', book_path(@book), :method => :delete, :confirm => "Really delete this book?" %>  
+</p> 
